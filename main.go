@@ -96,7 +96,7 @@ var (
 {{- end }}
 )
 
-var testData = []struct {
+var abiTestData = []struct {
 	name    string
 	native  [][]byte
 	encoded []byte
@@ -172,5 +172,5 @@ func printExamplesSliceOfByteSlice(w io.Writer, packageName string) {
 }
 
 func main() {
-	printExamplesSliceOfByteSlice(os.Stdout, "evmlink")
+	printExamplesSliceOfByteSlice(os.Stdout, "evmlink_test")
 }
