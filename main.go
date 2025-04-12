@@ -20,12 +20,12 @@ func exitOnError(err error) {
 
 func mustBeEqual(a, b [][]byte) {
 	if len(a) != len(b) {
-		log.Fatal("not equal length %d %d", len(a), len(b))
+		log.Fatalf("not equal length %d %d", len(a), len(b))
 	}
 
 	for i := range a {
 		if !bytes.Equal(a[i], b[i]) {
-			log.Fatal("not equal %v %v", a[i], b[i])
+			log.Fatalf("not equal %v %v", a[i], b[i])
 		}
 	}
 }
@@ -61,7 +61,7 @@ const (
 )
 
 var examples = map[string][]byte{
-	emptyBytes:   []byte{},
+	emptyBytes:   {},
 	oneByte:      []byte("a"),
 	someBytes1:   []byte("hello"),
 	someBytes2:   []byte("world"),
