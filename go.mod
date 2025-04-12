@@ -1,4 +1,4 @@
-module bky.sh/abi-testdata
+module github.com/blocky/abi-testdata
 
 go 1.24.1
 
