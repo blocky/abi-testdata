@@ -116,5 +116,13 @@ func (t *IntAndBytes) ABIEncode() ([]byte, error) {
 		return nil, errors.New("input doesn't match decoded result")
 	}
 
-	return encoded, nil
+	// Note that we trim off the first 32 bytes of the
+	// encoding because when we use the standard tooling for
+	// abi encoding a tuple, if the tuples contains a dynamic type,
+	// such as bytes, the go-ethereum pack method
+	// adds a dynamic header.  Unfortunately,
+	// when you try to decode with solidity
+	// using abi.decode(data, (int, bytes, bytes))
+	// the "dynamic" portion is expected to not be there.
+	return encoded[32:], nil
 }

@@ -62,11 +62,11 @@ type IntAndBytesExample struct {
 }
 
 var testData = struct {
-	SliceOfBytes []SliceOfBytesExample
-	AllInts      []AllIntsExample
-	IntAndBytes  []IntAndBytesExample
+	sliceOfBytes []SliceOfBytesExample
+	allInts      []AllIntsExample
+	intAndBytes  []IntAndBytesExample
 }{
-	SliceOfBytes: []SliceOfBytesExample{
+	sliceOfBytes: []SliceOfBytesExample{
 {{- range .SliceOfBytes }}
 		{
 			name: "{{.Name}}",
@@ -80,7 +80,7 @@ var testData = struct {
 {{- end }}
 	},
 
-	AllInts: []AllIntsExample{
+	allInts: []AllIntsExample{
 {{- range .AllInts }}
 		{
 			name: "{{.Name}}",
@@ -94,7 +94,7 @@ var testData = struct {
 {{- end }}
 	},
 
-	IntAndBytes: []IntAndBytesExample{
+	intAndBytes: []IntAndBytesExample{
 {{- range .IntAndBytes }}
 		{
 			name: "{{.Name}}",
