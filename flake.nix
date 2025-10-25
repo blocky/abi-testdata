@@ -37,6 +37,7 @@
             pkgs.git
             pkgs.go
             pkgs.gotools
+            pkgs.gopls
             pkgs.nixfmt-rfc-style
           ];
         };

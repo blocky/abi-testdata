@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/hex"
+	"flag"
 	"fmt"
 	"log"
 	"os"
@@ -159,6 +160,9 @@ func makeIntAndBytesExamples() ([]IntAndBytesExample, error) {
 }
 
 func main() {
+	packageName := flag.String("package-name", "abitestdata", "package name")
+	flag.Parse()
+
 	sliceOfBytes, err := makeSliceOfByteSliceExamples()
 	exitOnError("creating slice of bytes examples", err)
 
@@ -169,7 +173,7 @@ func main() {
 	exitOnError("creating int and bytes examples", err)
 
 	renderer := Renderer{
-		packageName:  "abitestdata",
+		packageName:  *packageName,
 		sliceOfBytes: sliceOfBytes,
 		allInts:      allInts,
 		intAndBytes:  intAndBytes,
